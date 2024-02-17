@@ -1,0 +1,109 @@
+.wrapper-page {
+  margin: 5% auto;
+  position: relative;
+  width: 420px;
+  position: fixed;
+  left: 0;
+  right: 0;
+
+  .text-center {
+    text-align: center;
+  }
+
+  .card-box {
+    margin-top: 20px;
+    padding: 20px;
+    box-shadow:
+      0 0px 8px 0 rgba(0, 0, 0, 0.06),
+      0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #2f2f39;
+
+    .text-center {
+      h3 {
+        color: #f9f9f9;
+        font-weight: bold;
+        margin: 10px 0;
+        line-height: 30px;
+        font-size: 22px;
+        letter-spacing: 1.2px;
+      }
+    }
+
+    form {
+      margin-top: 20px;
+
+      .mb-3 {
+        margin-bottom: 1rem;
+        .input-text {
+          background-color: #202123;
+          border: 0;
+          border-radius: 4px;
+          font-size: 14px;
+          color: #f9f9f9;
+          height: 44px !important;
+          font-weight: 500;
+          max-width: 100%;
+          padding: 8px 15px;
+          box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+          transition: all 300ms linear;
+
+          &::placeholder {
+            color: #6c757d;
+          }
+
+          &:focus {
+            background: #202123ad;
+            box-shadow: 0 2px 8px rgba(255, 255, 255, 0.03);
+            -webkit-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            border: 0;
+            color: #f9f9f9;
+            outline: 0 !important;
+          }
+        }
+        label {
+          font-weight: 500;
+          color: #f9f9f9;
+          font-size: 14px;
+        }
+      }
+      .submit-button {
+        width: 100%;
+        background-color: #567cdf;
+        border-bottom: 0px solid #567cdf;
+        font-size: 14px;
+        line-height: 30px;
+        border: 0;
+        text-transform: uppercase;
+        transition: all 0.3s ease-in-out;
+
+        &:hover,
+        &:focus,
+        &:active,
+        &:focus-within {
+          background-color: #202123 !important;
+          border: 0px solid #202123 !important;
+          border-radius: 4px;
+        }
+      }
+      .register {
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        gap: 7px;
+        color: #98a6ad;
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .wrapper-page {
+    width: 90%;
+  }
+}

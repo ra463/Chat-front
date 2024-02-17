@@ -1,0 +1,261 @@
+.home {
+    color: #f0f0f0;
+    display: grid;
+    grid-template-columns: 20rem 1fr;
+    padding: 1rem;
+    gap: 1rem;
+    height: 100vh;
+
+    .sidebar {
+        .head {
+            display: flex;
+            justify-content: space-between;
+
+            svg {
+                cursor: pointer;
+                padding: 5px;
+                font-size: 1.7rem;
+                border: 1px solid #9da6ae;
+                background: #9da6ae1b;
+                border-radius: 3px;
+            }
+        }
+        .search {
+            button {
+                width: 100%;
+            }
+        }
+        .rooms {
+            margin-top: 1rem;
+            display: flex;
+            gap: 10px;
+            flex-direction: column;
+            overflow-y: auto;
+            height: 81.5vh;
+
+            &::-webkit-scrollbar {
+                background: #2f2f39;
+                width: 0px;
+                opacity: 0.4;
+                visibility: visible;
+            }
+
+            .all_rooms {
+                background: #2f2f39;
+                border-radius: 5px;
+                padding: 10px;
+                .a_div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+
+                    .profile_room {
+                        display: flex;
+                        align-items: center;
+                        gap: 7px;
+                        img {
+                            border-radius: 50%;
+                            width: 40px;
+                        }
+                        .text {
+                            display: flex;
+                            flex-direction: column;
+
+                            span {
+                                &:nth-child(2) {
+                                    font-size: 13px;
+                                }
+                            }
+                        }
+                    }
+
+                    svg {
+                        cursor: pointer;
+                    }
+                }
+                .b_div {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    font-size: 13px;
+                    color: #a9acb0;
+
+                    span {
+                        &:nth-child(1) {
+                            padding-left: 3rem;
+                        }
+                        &:nth-child(2) {
+                            width: 5rem;
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+            .active {
+                background: #51515f;
+            }
+        }
+    }
+
+    .chat_screen {
+        .profile_head {
+            background: #2f2f39;
+            display: flex;
+            justify-content: space-between;
+            height: 10vh;
+            padding: 10px;
+            border-radius: 5px;
+
+            .profile_user {
+                display: flex;
+                gap: 5px;
+                align-items: center;
+
+                img {
+                    border-radius: 50%;
+                    width: 40px;
+                }
+                div {
+                    display: flex;
+                    flex-direction: column;
+                    span {
+                        &:nth-child(2) {
+                            color: #a9acb0;
+                            font-size: 12px;
+                        }
+                    }
+                }
+            }
+            .links {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+
+                svg {
+                    cursor: pointer;
+                    color: #9da6ae;
+                    font-size: 1.1rem;
+                }
+            }
+        }
+        .no_section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            font-size: 20px;
+            background: #2f2f39;
+            color: #a9acb0;
+            font-weight: bold;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .chat_section {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 10px;
+
+            .conversation {
+                background: #2f2f39;
+                height: 75vh;
+                overflow-y: auto;
+                border-radius: 5px;
+                padding: 0 10px;
+
+                .left {
+                    align-items: flex-end;
+                }
+
+                .msg {
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+
+                    .profile_user {
+                        img {
+                            border-radius: 50%;
+                            width: 20px;
+                        }
+                        span {
+                            font-size: 13px;
+                            margin-left: 5px;
+                        }
+                    }
+
+                    .msg_body {
+                        span {
+                            background: #9da6ae1b;
+                            padding: 1px 4px;
+                            font-size: 13px;
+                            margin-left: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            .send_msg {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+
+                .group {
+                    background: #2f2f39;
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    border-radius: 25px;
+                    padding-right: 10px;
+
+                    textarea {
+                        width: 100%;
+                        min-height: 2.3rem;
+                        background: transparent;
+                        outline: none;
+                        border: none;
+                        resize: none;
+                        padding-top: 7px;
+                        padding-left: 10px;
+                        color: #f0f0f0;
+
+                        &::placeholder {
+                            color: #9da6ae;
+                            font-size: 14px;
+                        }
+                    }
+                }
+
+                svg {
+                    cursor: pointer;
+                    font-size: 1.2rem;
+                    color: #9da6ae;
+                }
+
+                .send {
+                    background: lightgreen;
+                    width: 5rem;
+                    border-radius: 5px;
+                    outline: none;
+                    border: none;
+                    padding: 5px 7px;
+                    cursor: pointer;
+
+                    &:hover {
+                        background: darkgreen;
+                        svg {
+                            color: #f0f0f0;
+                        }
+                    }
+
+                    svg {
+                        color: darkgreen;
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
