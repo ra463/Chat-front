@@ -2,6 +2,10 @@
 
 ## Website is not fully mobile responsive
 
+### Server is hosted on Render so there might be approx
+
+### 1 minute time latency on first time connecting
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
