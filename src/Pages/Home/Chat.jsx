@@ -118,26 +118,28 @@ const Chat = () => {
         <Header />
         <section className="chat_section">
           <ReactScrollToBottom className="conversation">
-            {messages.length > 0
-              ? messages.map((chat, i) => (
-                  <div
-                    key={i}
-                    className={`msg ${
-                      chat.user?._id === userId ? "right" : "left"
-                    }`}
-                  >
-                    <div className="msg_head">
-                      <div className="profile_user">
-                        <img src={chat.user?.avatar} alt="" />
-                        <span>{chat.user?.name}</span>
-                      </div>
-                    </div>
-                    <div className="msg_body">
-                      <span>{chat.message}</span>
+            {messages.length > 0 ? (
+              messages.map((chat, i) => (
+                <div
+                  key={i}
+                  className={`msg ${
+                    chat.user?._id === userId ? "right" : "left"
+                  }`}
+                >
+                  <div className="msg_head">
+                    <div className="profile_user">
+                      <img src={chat.user?.avatar} alt="" />
+                      <span>{chat.user?.name}</span>
                     </div>
                   </div>
-                ))
-              : null}
+                  <div className="msg_body">
+                    <span>{chat.message}</span>
+                  </div>
+                </div>
+              ))
+            ) : (
+              <div className="no_chat">Start the chat...</div>
+            )}
           </ReactScrollToBottom>
           <div className="send_msg">
             <FiPlusCircle />

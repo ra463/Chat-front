@@ -1,10 +1,8 @@
 .wrapper-page {
-  margin: 3% auto;
-  position: relative;
-  width: 420px;
-  position: fixed;
-  left: 0;
-  right: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .text-center {
     text-align: center;
@@ -16,8 +14,8 @@
       0 0px 8px 0 rgba(0, 0, 0, 0.06),
       0 1px 0px 0 rgba(0, 0, 0, 0.02);
     border-radius: 5px;
-    margin-bottom: 20px;
     background-color: #2f2f39;
+    width: 25rem;
 
     .text-center {
       h3 {
@@ -98,11 +96,5 @@
         font-size: 14px;
       }
     }
-  }
-}
-
-@media (max-width: 767px) {
-  .wrapper-page {
-    width: 90%;
   }
 }
