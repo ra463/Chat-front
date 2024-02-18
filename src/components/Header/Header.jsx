@@ -1,13 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
-import { FaRegEdit, FaSearch } from "react-icons/fa";
-import { CgLogOut } from "react-icons/cg";
-import { BsThreeDotsVertical } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { removeToken } from "../../features/authSlice";
 import { toast } from "react-toastify";
 import "./Header.scss";
+import { MdOutlineLogout } from "react-icons/md";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -45,25 +43,21 @@ const Header = () => {
         </div>
       </div>
       <div className="links">
-        <FaSearch />
-        <FaRegEdit />
-        <BsThreeDotsVertical onClick={() => setShow((prev) => !prev)} />
+        <button onClick={logoutHandler}>
+          <MdOutlineLogout />
+          Logout
+        </button>
+        <img src={profile} alt="" onClick={() => setShow((prev) => !prev)} />
       </div>
       {show && (
         <div className="dropdown_menu">
-          <div className="prof">
-            <Link to="/profile">
-              <img src={profile} alt="" />
-              <div>
-                <span>{userName}</span>
-                <span className="email">{userEmail}</span>
-              </div>
-            </Link>
-          </div>
-          <div onClick={logoutHandler} className="mor1">
-            <CgLogOut />
-            <span style={{ fontWeight: "bold" }}>Logout</span>
-          </div>
+          <Link className="prof" to="/profile">
+            <img src={profile} alt="" />
+            <div>
+              <span>{userName}</span>
+              <span className="email">{userEmail}</span>
+            </div>
+          </Link>
         </div>
       )}
     </section>

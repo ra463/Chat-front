@@ -137,10 +137,35 @@
                 align-items: center;
                 gap: 10px;
 
-                svg {
+                button {
+                    outline: none;
+                    border: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 2px;
+                    border-radius: 4px;
+                    padding: 5px 10px;
+                    color: #f0f0f0;
                     cursor: pointer;
-                    color: #9da6ae;
-                    font-size: 1.1rem;
+                    background: red;
+                    &:hover {
+                        background: darkred;
+                    }
+
+                    svg {
+                        font-size: 1.2rem;
+                        color: #f0f0f0;
+                    }
+                }
+
+                img {
+                    cursor: pointer;
+                    width: 30px;
+                    border-radius: 50%;
+
+                    &:hover {
+                        border: 2px solid green;
+                    }
                 }
             }
         }
@@ -173,7 +198,7 @@
 
                 .react-scroll-to-bottom--css-fzvmv-1n7m0yu {
                     overflow-y: visible;
-                    
+
                     &::-webkit-scrollbar {
                         background: #51515f;
                         width: 5px !important;
@@ -293,3 +318,15 @@
         }
     }
 }
+
+// @media screen and (max-width: 715px) {
+//     .home {
+//         grid-template-columns: 1fr;
+//         position: relative;
+
+//         .sidebar {
+//             position: absolute;
+//             left: -20rem;
+//         }
+//     }
+// }

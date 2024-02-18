@@ -10,7 +10,7 @@ import { setCurrentPage } from "../../features/generalSlice";
 import { toast } from "react-toastify";
 import axios from "../../utils/axiosUtils";
 
-const Sidebar = () => {
+const Sidebar = ({ show, setShow }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { token } = useSelector((state) => state.auth);

@@ -7,6 +7,7 @@ import ProtectedRoute from "./components/ProtectedRoutes/ProtectedRoute";
 import Register from "./Pages/Auth/Register";
 import Toastify from "./utils/Toastify";
 import Chat from "./Pages/Home/Chat";
+import Profile from "./Pages/Profile/Profile";
 
 function App() {
   return (
@@ -27,6 +28,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Chat />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute>
+              <Profile />
             </ProtectedRoute>
           }
         />
