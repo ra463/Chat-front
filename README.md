@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+## Website is not fully mobile responsive
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

@@ -164,8 +164,14 @@
                 border-radius: 5px;
                 padding: 0 10px;
 
-                .left {
-                    align-items: flex-end;
+                &::-webkit-scrollbar {
+                    background: #51515f;
+                    width: 3px;
+                }
+
+                &::-webkit-scrollbar-thumb {
+                    background: #9da6ae;
+                    border-radius: 5px;
                 }
 
                 .msg {
@@ -191,6 +197,21 @@
                             padding: 1px 4px;
                             font-size: 13px;
                             margin-left: 1.5rem;
+                        }
+                    }
+
+                    &:last-child {
+                        margin-bottom: 10px;
+                    }
+                }
+
+                .left {
+                    align-items: flex-end;
+
+                    .msg_body {
+                        span {
+                            background: #9da6ae1b;
+                            text-align: left;
                         }
                     }
                 }

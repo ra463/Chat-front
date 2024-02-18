@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import "./Home.scss";
 import { FiPlusCircle } from "react-icons/fi";
@@ -7,44 +7,43 @@ import { MdOutlineEmojiEmotions } from "react-icons/md";
 import { BsUpload } from "react-icons/bs";
 import { IoSend } from "react-icons/io5";
 import { useDispatch, useSelector } from "react-redux";
-import io from "socket.io-client";
-import { getChatsOfRoom, getRoom } from "../../features/apiCall";
+import { io } from "socket.io-client";
+import { getRoom } from "../../features/apiCall";
 import { setCurrentPage } from "../../features/generalSlice";
 import { useParams } from "react-router-dom";
 import Header from "../../components/Header/Header";
 import { toast } from "react-toastify";
 import axios from "../../utils/axiosUtils";
 import { Button } from "react-bootstrap";
+import ReactScrollToBottom from "react-scroll-to-bottom";
 
 const ENDPOINT = "http://localhost:4000";
-var socket;
+// var socket;
 
 const Chat = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { token, id: userId } = useSelector((state) => state.auth);
   const { room } = useSelector((state) => state.room);
-  const { chats } = useSelector((state) => state.chat);
+  const socket = useRef();
 
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState("");
-  const [socketConnected, setSocketConnected] = useState("");
-
-  console.log(socketConnected);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
 
   useEffect(() => {
-    socket = io(ENDPOINT);
-    socket.emit("setup", userId);
-    socket.on("connection", (arg) => {
-      setSocketConnected(arg);
-      console.log(arg);
-    });
-  }, [token]);
+    if (id) {
+      socket.current = io(ENDPOINT);
+      socket.current.emit("join-user", userId);
+      socket.current.on("me", (data) => {
+        console.log(data);
+      });
+    }
+  }, [id]);
 
   useEffect(() => {
     if (token && id) {
       getRoom(dispatch, token, id);
-      getChatsOfRoom(dispatch, token, id);
     }
   }, [id]);
 
@@ -63,7 +62,7 @@ const Chat = () => {
         },
       });
       setMessages(data.chats);
-      socket.emit("join room chat", id);
+      socket.current.emit("join-room", id);
     } catch (error) {
       toast.error(error.response.data.message);
     }
@@ -84,17 +83,12 @@ const Chat = () => {
           },
         }
       );
-      const newData = {
-        data: data.chat,
-        room: room,
-      };
-      if (data.success) {
-        socket.emit("new message", newData);
-        setMessage("");
-        setMessages([...messages, data.chat]);
-      }
+
+      socket.current.emit("new message", data.chat);
+      setMessage("");
+      // setMessages([...messages, data.chat]);
     } catch (error) {
-      toast.error(error.response.data.message);
+      toast.error(error.message);
     }
   };
 
@@ -103,15 +97,22 @@ const Chat = () => {
   }, [id]);
 
   useEffect(() => {
-    socket.on("message received", (newMessageRecieved) => {
-      console.log(newMessageRecieved);
-      if (!room || room._id !== newMessageRecieved.data.room) {
-        // getChatsOfRoom(dispatch, token, id, socket);
-      } else {
-        setMessages([...messages, newMessageRecieved.data]);
-      }
-    });
-  });
+    if (socket.current) {
+      socket.current.on("received", (newMessageRecieved) => {
+        setArrivalMessage(newMessageRecieved);
+      });
+    }
+  }, []);
+
+  useEffect(() => {
+    if (id.toString() !== arrivalMessage?.room.toString()) {
+      return setArrivalMessage(null);
+    } else {
+      setMessages((prev) => [...prev, arrivalMessage]);
+      // setAllMessages([...messages]);
+      setArrivalMessage(null);
+    }
+  }, [arrivalMessage]);
 
   return (
     <div className="home">
@@ -119,7 +120,7 @@ const Chat = () => {
       <div className="chat_screen">
         <Header />
         <section className="chat_section">
-          <div className="conversation">
+          <ReactScrollToBottom className="conversation">
             {messages.length > 0
               ? messages.map((chat, i) => (
                   <div
@@ -140,7 +141,7 @@ const Chat = () => {
                   </div>
                 ))
               : null}
-          </div>
+          </ReactScrollToBottom>
           <div className="send_msg">
             <FiPlusCircle />
             <div className="group">
