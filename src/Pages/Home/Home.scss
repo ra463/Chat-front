@@ -171,14 +171,18 @@
                 border-radius: 5px;
                 padding: 0 10px;
 
-                &::-webkit-scrollbar {
-                    background: #51515f;
-                    width: 3px;
-                }
+                .react-scroll-to-bottom--css-fzvmv-1n7m0yu {
+                    overflow-y: visible;
+                    
+                    &::-webkit-scrollbar {
+                        background: #51515f;
+                        width: 5px !important;
+                    }
 
-                &::-webkit-scrollbar-thumb {
-                    background: #9da6ae;
-                    border-radius: 5px;
+                    &::-webkit-scrollbar-thumb {
+                        background: #9da6ae;
+                        width: 4px !important;
+                    }
                 }
 
                 .msg {
@@ -211,6 +215,10 @@
                         margin-bottom: 10px;
                     }
                 }
+
+                .left {
+                    align-items: flex-end;
+                }
             }
 
             .send_msg {
@@ -237,6 +245,16 @@
                         padding-top: 10px;
                         padding-left: 10px;
                         color: #f0f0f0;
+
+                        &::-webkit-scrollbar {
+                            background: #51515f;
+                            width: 5px !important;
+                        }
+
+                        &::-webkit-scrollbar-thumb {
+                            background: #9da6ae;
+                            width: 4px !important;
+                        }
 
                         &::placeholder {
                             color: #9da6ae;

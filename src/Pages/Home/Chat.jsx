@@ -17,6 +17,7 @@ import axios from "../../utils/axiosUtils";
 import { Button } from "react-bootstrap";
 import ReactScrollToBottom from "react-scroll-to-bottom";
 
+// const ENDPOINT = "http://localhost:4000";
 const ENDPOINT = "https://chat-app-ovn9.onrender.com";
 
 const Chat = () => {
@@ -85,6 +86,7 @@ const Chat = () => {
 
       socket.current.emit("new message", data.chat);
       setMessage("");
+      setMessages([...messages, data.chat]);
     } catch (error) {
       toast.error(error.message);
     }
