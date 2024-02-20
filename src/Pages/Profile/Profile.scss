@@ -7,10 +7,15 @@
         align-items: center;
         height: 10vh;
         padding-left: 1rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 99;
 
-        h3 {
+        h4 {
             margin-bottom: 0;
-            color: #567cdf;
+            font-size: 20px;
+            color: #f9f9f9;
         }
     }
 
@@ -19,6 +24,98 @@
         grid-template-columns: 15rem 1fr;
         gap: 1rem;
         margin: 1rem;
+        margin-top: 4.5rem;
+
+        .view_user {
+            .card {
+                background: #1c1c1e;
+                color: #f9f9f9;
+                padding: 1.3rem;
+                gap: 1rem;
+
+                &:nth-child(1) {
+                    display: flex;
+                    flex-direction: row;
+                    position: relative;
+                    
+                    img {
+                        width: 155px;
+                        height: 155px;
+                        border-radius: 0.25rem;
+                    }
+
+                    .user_info {
+                        overflow: hidden;
+                        .user_name {
+                            align-items: center;
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+                            width: 100%;
+
+                            h4 {
+                                font-size: 16px;
+                                font-weight: 700;
+                                letter-spacing: 1.3px;
+                            }
+                            .active {
+                                background: #10c469;
+                                border-radius: 3px;
+                                color: #f9f9f9;
+                                font-size: 13px;
+                                padding: 2px 4px;
+                                position: absolute;
+                                right: 2rem;
+                                letter-spacing: 1.2px;
+                                font-weight: bold;
+                            }
+                        }
+                        .user_details {
+                            color: #98a6ad;
+                            display: flex;
+                            flex-direction: column;
+
+                            span {
+                                display: flex;
+                                flex-direction: row;
+                                flex-wrap: wrap;
+                                font-size: 14px;
+
+                                .field_head {
+                                    font-size: 13px;
+                                    font-weight: 700;
+                                    letter-spacing: 1.2px;
+                                    margin-right: 5px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &:nth-child(2) {
+                    margin-top: 1rem;
+
+                    h3 {
+                        font-size: 16px;
+                        font-weight: 700;
+                        letter-spacing: 1.3px;
+                    }
+
+                    .input-fields {
+                        input {
+                            background-color: #313133;
+                            border: none;
+                            box-shadow: none;
+                            box-shadow: 0 3px 6px #0003;
+                            color: #f9f9f9;
+                            font-weight: 500;
+                            height: 44px !important;
+                            max-width: 100%;
+                        }
+                    }
+                }
+            }
+        }
 
         section {
             padding: 10px;
@@ -28,22 +125,38 @@
         }
 
         .sidenav {
+            background: #1c1c1e;
             div {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-                margin-top: 10px;
+                &:nth-child(1) {
+                    display: flex;
+                    flex-direction: column;
+                    img {
+                        border-radius: 6px;
+                        opacity: 0.8;
+                    }
+                }
+
+                &:nth-child(2) {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 10px;
+                    margin-top: 10px;
+                }
 
                 li {
                     list-style: none;
                     align-items: center;
                     display: flex;
                     gap: 6px;
-                    background: #3c3c45;
+                    background: #313133;
                     padding: 5px 10px;
                     border-radius: 5px;
                     cursor: pointer;
                     transition: all 0.1s ease-in-out;
+
+                    &:nth-child(1){
+                        background: #51515f;
+                    }
                     &:hover {
                         background: #51515f;
                     }

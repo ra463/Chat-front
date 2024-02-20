@@ -50,15 +50,13 @@ const Header = () => {
         <img src={profile} alt="" onClick={() => setShow((prev) => !prev)} />
       </div>
       {show && (
-        <div className="dropdown_menu">
-          <Link className="prof" to="/profile">
-            <img src={profile} alt="" />
-            <div>
-              <span>{userName}</span>
-              <span className="email">{userEmail}</span>
-            </div>
-          </Link>
-        </div>
+        <Link className="prof" to="/profile">
+          <img src={profile} alt="" />
+          <div>
+            <span>{userName}</span>
+            <span className="email">{userEmail}</span>
+          </div>
+        </Link>
       )}
     </section>
   );

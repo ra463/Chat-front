@@ -113,6 +113,16 @@ const Chat = () => {
     }
   }, [arrivalMessage]);
 
+  const formatDateTime = (dateTimeString) => {
+    const dateTime = new Date(dateTimeString);
+    const time = dateTime.toLocaleTimeString("en-US", {
+      hour: "numeric",
+      minute: "numeric",
+      hour12: true,
+    });
+    return time;
+  };
+
   return (
     <div className="home">
       <Sidebar />
@@ -132,6 +142,7 @@ const Chat = () => {
                     <div className="profile_user">
                       <img src={chat.user?.avatar} alt="" />
                       <span>{chat.user?.name}</span>
+                      <span style={{fontSize:"10px",color:"gray"}}>{formatDateTime(chat.createdAt)}</span>
                     </div>
                   </div>
                   <div className="msg_body">

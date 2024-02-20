@@ -41,8 +41,8 @@
             }
 
             .all_rooms {
-                background: #2f2f39;
-                cursor: default;
+                background: #1c1c1e;
+                cursor: pointer;
                 border-radius: 5px;
                 padding: 10px;
 
@@ -104,7 +104,8 @@
 
     .chat_screen {
         .profile_head {
-            background: #2f2f39;
+            background: #1c1c1e;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
             display: flex;
             justify-content: space-between;
             position: relative;
@@ -176,7 +177,7 @@
             align-items: center;
             height: 72vh;
             font-size: 20px;
-            background: #2f2f39;
+            background: #1c1c1e;
             color: #a9acb0;
             font-weight: bold;
             margin-top: 10px;
@@ -190,25 +191,11 @@
             gap: 10px;
 
             .conversation {
-                background: #2f2f39;
+                background: #1c1c1e;
                 height: 74vh;
                 overflow-y: auto;
                 border-radius: 5px;
                 padding: 0 10px;
-
-                .react-scroll-to-bottom--css-fzvmv-1n7m0yu {
-                    overflow-y: visible;
-
-                    &::-webkit-scrollbar {
-                        background: #51515f;
-                        width: 5px !important;
-                    }
-
-                    &::-webkit-scrollbar-thumb {
-                        background: #9da6ae;
-                        width: 4px !important;
-                    }
-                }
 
                 .msg {
                     margin-top: 10px;
@@ -243,6 +230,7 @@
 
                 .left {
                     align-items: flex-end;
+                    margin-right: 10px;
                 }
             }
 

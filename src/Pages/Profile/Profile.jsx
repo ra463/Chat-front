@@ -5,15 +5,21 @@ import {
   MdOutlineAccountCircle,
   MdSecurity,
   MdOutlineLogout,
-  MdOutlineDeleteOutline,
 } from "react-icons/md";
-import { FaRegImage } from "react-icons/fa";
 import { removeToken } from "../../features/authSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "../../utils/axiosUtils";
-import { Spinner } from "react-bootstrap";
+import {
+  Button,
+  Card,
+  Col,
+  Container,
+  Row,
+  Spinner,
+  Form,
+} from "react-bootstrap";
 import ChangeProfilePicture from "./ChangeProfilePicture";
 
 const Profile = () => {
@@ -76,11 +82,14 @@ const Profile = () => {
   return (
     <div className="profile_page">
       <section className="no_section">
-        <h3>{`</> ${name}'s Profile </>`}</h3>
+        <h4>{`${name} - Profile`}</h4>
       </section>
       <div className="section">
         <section className="sidenav">
-          <h4>{"</> Profile </>"}</h4>
+          <div>
+            <h4>Chat App</h4>
+            <img src="./chat.jpg" alt=""></img>
+          </div>
           <div>
             <li>
               <MdOutlineAccountCircle />
@@ -96,53 +105,77 @@ const Profile = () => {
             </li>
           </div>
         </section>
-        <section className="profile_body">
-          <h4>{"</> Account Preferences </>"}</h4>
-          <div className="img_section">
-            <img src={profile} alt=""></img>
-            <div className="btns_1">
-              <button onClick={() => setShow(true)}>
-                <FaRegImage />
-                Edit
-              </button>
-              <button>
-                <MdOutlineDeleteOutline />
-                Remove
-              </button>
+        <Container className="view_user">
+          <Card>
+            <img src={profile} alt="" />
+            <div className="user_info">
+              <div className="user_name">
+                <h4>{name}</h4>
+                <span className="active">Active</span>
+              </div>
+              <div className="user_details">
+                <span>
+                  <span className="field_head">Email Address:</span> {email}
+                </span>
+                <span>
+                  <span className="field_head">Mobile Number:</span> {mobile}
+                </span>
+                <Button style={{ marginTop: "3rem" }}>Change Picture</Button>
+              </div>
             </div>
-          </div>
-          <form className="details">
-            <div>
-              <label htmlFor="name">Name</label>
-              <input
-                value={userName}
-                onChange={(e) => setUserName(e.target.value)}
-                type="text"
-                placeholder="Name"
-              />
-              <label htmlFor="email">Email</label>
-              <input
-                value={userEmail}
-                onChange={(e) => setUserEmail(e.target.value)}
-                type="email"
-                placeholder="Email"
-              />
-              <label htmlFor="password">Mobile</label>
-              <input
-                value={userMobile}
-                onChange={(e) => setUserMobile(e.target.value)}
-                type="number"
-                placeholder="Mobile"
-              />
-            </div>
-            <div className="btns_2">
-              <button>Cancel</button>
-              <button onClick={(e) => submitHandler(e)}>
-                {loading ? <Spinner /> : "Update"}
-              </button>
-            </div>
-          </form>
-        </section>
+          </Card>
+          <Card>
+            <h3>Update User</h3>
+            <Container className="input-fields">
+              <Row className="align-items-center mb-4">
+                <Col sm={12} md={3}>
+                  <Form.Label>Name</Form.Label>
+                </Col>
+                <Col sm={12} md={8}>
+                  <Form.Control
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                    type="text"
+                  />
+                </Col>
+              </Row>
+              <Row className="align-items-center mb-4">
+                <Col sm={12} md={3}>
+                  <Form.Label>Email Address</Form.Label>
+                </Col>
+                <Col sm={12} md={8}>
+                  <Form.Control
+                    value={userEmail}
+                    onChange={(e) => setUserEmail(e.target.value)}
+                    type="email"
+                  />
+                </Col>
+              </Row>
+              <Row className="align-items-center mb-4">
+                <Col sm={12} md={3}>
+                  <Form.Label>Mobile Number</Form.Label>
+                </Col>
+                <Col sm={12} md={8}>
+                  <Form.Control
+                    value={userMobile}
+                    onChange={(e) => setUserMobile(e.target.value)}
+                    type="text"
+                  />
+                </Col>
+              </Row>
+              <Row className="align-items-center mb-4">
+                <Col className="d-none d-md-block" md={3}>
+                  <Form.Label></Form.Label>
+                </Col>
+                <Col sm={12} md={8}>
+                  <Button onClick={submitHandler}>
+                    {loading ? <Spinner /> : "Update"}
+                  </Button>
+                </Col>
+              </Row>
+            </Container>
+          </Card>
+        </Container>
       </div>
       <ChangeProfilePicture show={show} onHide={() => setShow(false)} />
     </div>

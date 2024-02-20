@@ -1,81 +1,70 @@
-.dropdown_menu {
+.prof {
     position: absolute;
-    background: #202123;
     right: 0.3rem;
     top: 4rem;
-    gap: 5px;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     margin-top: 5px;
-    padding: 10px;
     font-size: 1rem;
-    border-radius: 5px;
     z-index: 99;
+    display: flex;
+    background: #2f2f39;
+    align-items: center;
+    width: 15rem;
+    padding: 5px 7px;
+    border-radius: 5px;
+    transition: all 0.1s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
 
-    .prof {
+    img {
+        width: 50px;
+        border-radius: 50%;
+        padding: 2px;
+        border: 2px solid #567cdf;
+    }
+
+    div {
         display: flex;
-        background: #2f2f39;
-        align-items: center;
-        width: 15rem;
-        padding: 5px 7px;
-        border-radius: 5px;
-        transition: all 0.1s ease-in-out;
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        cursor: pointer;
+        flex-direction: column;
+        font-size: 1.2rem;
+        align-items: flex-start;
+        font-weight: bold;
 
-        img {
-            width: 50px;
-            border-radius: 50%;
-            padding: 2px;
-            border: 2px solid #567cdf;
-        }
-
-        div {
-            display: flex;
-            flex-direction: column;
-            font-size: 1.2rem;
-            align-items: flex-start;
-            font-weight: bold;
-
-            .email {
-                font-size: 0.8rem;
-                font-weight: 500;
-                color: #567cdf;
-            }
-        }
-
-        &:hover {
-            background: #51515fc5;
+        .email {
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #567cdf;
         }
     }
-    .mor1 {
-        width: 100%;
-        margin-top: 5px;
-        display: flex;
-        background: rgba(112, 128, 144, 0.103);
-        align-items: center;
-        margin-top: 10px;
-        padding: 7px;
-        border-radius: 20px;
-        font-weight: 500;
-        cursor: pointer;
-        gap: 4px;
-        transition: all 0.1s ease-in-out;
-        border: 1px solid transparent;
 
-        svg {
-            font-size: 1.3rem;
-            margin-left: 5px;
-        }
+    &:hover {
+        background: #51515fc5;
+    }
+}
+.mor1 {
+    width: 100%;
+    margin-top: 5px;
+    display: flex;
+    background: rgba(112, 128, 144, 0.103);
+    align-items: center;
+    margin-top: 10px;
+    padding: 7px;
+    border-radius: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    gap: 4px;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
 
-        &:hover {
-            background: var(--bg-forth);
-            border: 1px solid #567cdf;
-        }
+    svg {
+        font-size: 1.3rem;
+        margin-left: 5px;
+    }
+
+    &:hover {
+        background: var(--bg-forth);
+        border: 1px solid #567cdf;
     }
 }
 
