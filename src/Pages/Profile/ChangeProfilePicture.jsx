@@ -53,6 +53,7 @@ const ChangeProfilePicture = (props) => {
         setImagePreview("");
         setImage("");
         props.onHide();
+        window.location.reload();
       }
     } catch (error) {
       toast.error(error.response.data.message);
