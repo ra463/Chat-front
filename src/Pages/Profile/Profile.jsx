@@ -120,7 +120,12 @@ const Profile = () => {
                 <span>
                   <span className="field_head">Mobile Number:</span> {mobile}
                 </span>
-                <Button style={{ marginTop: "3rem" }}>Change Picture</Button>
+                <Button
+                  onClick={() => setShow(true)}
+                  style={{ marginTop: "3rem" }}
+                >
+                  Change Picture
+                </Button>
               </div>
             </div>
           </Card>
